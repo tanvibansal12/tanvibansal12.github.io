@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tanvi Bansal</title>
+<meta name="description" content="Robotics and low-latency systems. Building data infrastructure for physical AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ECEDEA;
+    --ink:#15181B;
+    --soft:#6B7379;
+    --rule:#C9CDC8;
+    --scan:#0F5E5B;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.86rem;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{
+    max-width:44rem;
+    margin:0 auto;
+    padding:5.5rem 1.6rem 6rem;
+  }
+
+  h1{
+    font-size:.86rem;
+    font-weight:500;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    margin:0 0 1.6rem;
+  }
+
+  .lede{
+    font-size:1.05rem;
+    line-height:1.6;
+    max-width:32rem;
+    margin:0 0 3rem;
+    font-weight:400;
+  }
+
+  /* ---- the scan ---- */
+  .scan{
+    border-top:1px solid var(--rule);
+    border-bottom:1px solid var(--rule);
+    padding:1rem 0;
+    margin:0 0 3.4rem;
+  }
+  canvas{display:block;width:100%;height:200px;cursor:crosshair}
+  .scan-meta{
+    display:flex;
+    justify-content:space-between;
+    gap:1rem;
+    font-size:.64rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--soft);
+    margin-top:.7rem;
+  }
+
+  section{
+    border-top:1px solid var(--rule);
+    padding:1.5rem 0;
+  }
+  h2{
+    font-size:.64rem;
+    font-weight:500;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--soft);
+    margin:0 0 .9rem;
+  }
+  ul{margin:0;padding:0;list-style:none}
+  li{margin-bottom:.45rem}
+  li:last-child{margin-bottom:0}
+  .yr{color:var(--soft);display:inline-block;min-width:5.2rem}
+
+  p{margin:0 0 .9rem;max-width:32rem}
+  p:last-child{margin-bottom:0}
+
+  a{color:var(--scan);text-decoration:none;border-bottom:1px solid rgba(15,94,91,.3)}
+  a:hover{border-bottom-color:var(--scan)}
+  a:focus-visible{outline:2px solid var(--scan);outline-offset:3px}
+
+  .links{display:flex;flex-wrap:wrap;gap:.4rem 1.6rem}
+
+  @media (max-width:560px){
+    .wrap{padding:3.2rem 1.2rem 4rem}
+    .yr{display:block;min-width:0}
+    canvas{height:170px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Tanvi Bansal</h1>
+
+  <p class="lede">I build systems that have to be right in under ten milliseconds. Right now that means robots, and figuring out which of their data is actually worth learning from.</p>
+
+  <div class="scan">
+    <canvas id="lidar" aria-label="A simulated LiDAR scan. Move your cursor to change what it sees."></canvas>
+    <div class="scan-meta"><span>lidar &middot; 360&deg; &middot; move your cursor</span><span id="pts">0 returns</span></div>
+  </div>
+
+  <section>
+    <h2>Now</h2>
+    <p>Building data infrastructure for physical AI. Robotics teams record everything and then guess at what to train on. I'm building the layer that decides.</p>
+    <p>Also a robotics engineer at Verdant Robotics in San Francisco, and finishing electrical and computer engineering at the University of Toronto.</p>
+  </section>
+
+  <section>
+    <h2>Before</h2>
+    <ul>
+      <li><span class="yr">2026&ndash;</span>Northside Ventures, sourcing early companies</li>
+      <li><span class="yr">2025</span>Perplexity, Comet team</li>
+      <li><span class="yr">2025</span>Baskit, Jakarta, only AI engineer</li>
+      <li><span class="yr">2024</span>Hyundai Motorsport, real-time C++</li>
+      <li><span class="yr">2024</span>Ontario Power Generation, green energy telemetry</li>
+      <li><span class="yr">2023&ndash;</span>Helped build Canada's first driverless race car</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Earlier still</h2>
+    <p>Grew up in Siliguri, India. Started coding at eleven, paid for my own education from twelve on olympiad prizes. Sold a traffic-noise generator at thirteen and a hardware toy to an Indian university at fifteen, which is how I ended up doing research at Harvard.</p>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p class="links">
+      <a href="mailto:tanvi12.bansal@gmail.com">email</a>
+      <a href="#">github</a>
+      <a href="#">linkedin</a>
+      <a href="#">x</a>
+    </p>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  const c = document.getElementById('lidar');
+  const ctx = c.getContext('2d');
+  const readout = document.getElementById('pts');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  let W=0,H=0,dpr=1;
+  function size(){
+    dpr = Math.min(window.devicePixelRatio||1, 2);
+    W = c.clientWidth; H = c.clientHeight;
+    c.width = W*dpr; c.height = H*dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  size();
+  window.addEventListener('resize', size);
+
+  // walls the beam bounces off. simple segments, like a room.
+  function walls(){
+    const m = 10;
+    return [
+      [m,m,W-m,m],[W-m,m,W-m,H-m],[W-m,H-m,m,H-m],[m,H-m,m,m],
+      [W*0.18,H*0.28,W*0.34,H*0.28],
+      [W*0.34,H*0.28,W*0.34,H*0.62],
+      [W*0.58,H*0.20,W*0.58,H*0.48],
+      [W*0.68,H*0.70,W*0.88,H*0.70],
+      [W*0.44,H*0.78,W*0.52,H*0.60]
+    ];
+  }
+
+  let ox=0.5, oy=0.5;            // sensor origin, normalised
+  let tx=0.5, ty=0.5;            // target
+  c.addEventListener('pointermove', e=>{
+    const r = c.getBoundingClientRect();
+    tx = (e.clientX-r.left)/r.width;
+    ty = (e.clientY-r.top)/r.height;
+  });
+  c.addEventListener('pointerleave', ()=>{ tx=0.5; ty=0.5; });
+
+  function cast(px,py,ang,segs){
+    const dx=Math.cos(ang), dy=Math.sin(ang);
+    let best=null, bd=Infinity;
+    for(const s of segs){
+      const x3=s[0],y3=s[1],x4=s[2],y4=s[3];
+      const den=(x3-x4)*(-dy)-(y3-y4)*(-dx);
+      if(Math.abs(den)<1e-9) continue;
+      const t=((x3-px)*(-dy)-(y3-py)*(-dx))/den;
+      const u=((x3-px)*(y3-y4)-(y3-py)*(x3-x4))/den;
+      if(t>=0&&t<=1&&u>0&&u<bd){ bd=u; best=[px+dx*u, py+dy*u]; }
+    }
+    return best;
+  }
+
+  const N = 200;
+  const hits = new Array(N).fill(null);
+  let sweep = 0;
+
+  function frame(){
+    ox += (tx-ox)*0.07;
+    oy += (ty-oy)*0.07;
+    const px = ox*W, py = oy*H;
+    const segs = walls();
+
+    const step = reduced ? N : 4;
+    for(let k=0;k<step;k++){
+      const i = (sweep + k) % N;
+      hits[i] = cast(px, py, (i/N)*Math.PI*2, segs);
+    }
+    sweep = (sweep + step) % N;
+
+    ctx.clearRect(0,0,W,H);
+
+    // points
+    let live = 0;
+    for(let i=0;i<N;i++){
+      const h = hits[i];
+      if(!h) continue;
+      live++;
+      let age = (i - sweep + N) % N;
+      const a = reduced ? 0.5 : Math.max(0.06, 1 - age/N*1.6);
+      ctx.fillStyle = 'rgba(21,24,27,'+a.toFixed(3)+')';
+      ctx.fillRect(h[0]-1, h[1]-1, 2, 2);
+    }
+
+    // the active beam
+    if(!reduced){
+      const ang = (sweep/N)*Math.PI*2;
+      const h = hits[(sweep-1+N)%N];
+      if(h){
+        const g = ctx.createLinearGradient(px,py,h[0],h[1]);
+        g.addColorStop(0,'rgba(15,94,91,0)');
+        g.addColorStop(1,'rgba(15,94,91,0.55)');
+        ctx.strokeStyle=g; ctx.lineWidth=1;
+        ctx.beginPath(); ctx.moveTo(px,py); ctx.lineTo(h[0],h[1]); ctx.stroke();
+      }
+    }
+
+    // sensor
+    ctx.strokeStyle='rgba(15,94,91,0.9)'; ctx.lineWidth=1;
+    ctx.beginPath(); ctx.arc(px,py,3.5,0,Math.PI*2); ctx.stroke();
+
+    readout.textContent = live + ' returns';
+    requestAnimationFrame(frame);
+  }
+  frame();
+})();
+</script>
+</body>
+</html>
