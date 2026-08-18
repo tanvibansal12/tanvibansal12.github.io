@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Photos — Tanvi Bansal</title>
+<meta name="description" content="Photos by Tanvi Bansal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ---- tokens: change these and the whole site follows ---- */
+:root{
+  --paper:#E9EBEC;
+  --ink:#101418;
+  --ink-soft:#4A5257;
+  --ink-faint:#8A9296;
+  --line:#C3C8CB;
+  --copper:#9A5B2E;
+  --phase:#C4392C;
+  --measure:37rem;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Newsreader",Georgia,serif;
+  font-size:19px;
+  font-weight:300;
+  line-height:1.62;
+  letter-spacing:.004em;
+}
+.wrap{max-width:var(--measure);margin:0 auto;padding:0 1.5rem 7rem;position:relative}
+
+/* continuity trace down the left margin, one junction per section */
+.rail{
+  position:absolute;left:-2.25rem;top:.9rem;bottom:6rem;width:1px;
+  background:linear-gradient(to bottom,transparent 0,var(--line) 3rem,var(--line) calc(100% - 6rem),transparent 100%);
+}
+@media (max-width:760px){.rail{display:none}}
+
+header{padding:4.5rem 0 2.75rem}
+.mark{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:1.06rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+  margin:0 0 1.4rem;
+}
+.mark a{background:none;color:var(--ink)}
+nav{
+  display:flex;gap:1.25rem;flex-wrap:wrap;
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.74rem;letter-spacing:.11em;text-transform:uppercase;
+}
+nav a{color:var(--ink-faint);background:none;padding-bottom:2px;border-bottom:1px solid transparent}
+nav a:hover{color:var(--ink);border-bottom-color:var(--copper)}
+nav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--copper)}
+
+a{
+  color:var(--ink);text-decoration:none;
+  background-image:linear-gradient(var(--copper),var(--copper));
+  background-size:100% 1px;background-position:0 100%;background-repeat:no-repeat;padding-bottom:1px;
+}
+a:hover{color:var(--phase)}
+a:focus-visible{outline:2px solid var(--phase);outline-offset:3px;border-radius:2px}
+
+p{margin:0 0 1.15rem}
+p:last-child{margin-bottom:0}
+strong{font-weight:500}
+
+.lede{margin:2.2rem 0 1.6rem}
+.lede p{margin:0 0 .55rem;font-size:1.12rem}
+.meta{
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;letter-spacing:.03em;
+  color:var(--ink-soft);display:flex;gap:.9rem;flex-wrap:wrap;
+}
+.meta a{background:none;color:var(--ink-soft)}
+.meta a:hover{color:var(--phase)}
+
+section{padding-top:3rem;position:relative}
+h2{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.74rem;font-weight:500;letter-spacing:.17em;text-transform:uppercase;
+  color:var(--ink-faint);margin:0 0 1.5rem;
+}
+h2::before{
+  content:"";position:absolute;left:-2.53rem;top:3.42rem;width:7px;height:7px;border-radius:50%;
+  background:var(--paper);border:1px solid var(--copper);
+}
+@media (max-width:760px){h2::before{display:none}}
+
+.pull{
+  font-size:1.14rem;font-style:italic;
+  border-left:2px solid var(--copper);padding-left:1.1rem;margin:2rem 0;
+}
+.note{
+  font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.06em;
+  color:var(--ink-faint);margin:0 0 2.2rem;line-height:1.7;
+}
+
+/* rows */
+.rows{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.rows li{
+  display:grid;grid-template-columns:5.2rem 1fr;gap:1.1rem;
+  padding:.85rem 0;border-bottom:1px solid var(--line);align-items:baseline;font-size:1rem;
+}
+.rows .yr{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.06em;color:var(--ink-faint);text-transform:uppercase}
+.awards{font-size:.95rem;color:var(--ink-soft);margin-top:1rem;line-height:1.7}
+@media (max-width:520px){.rows li{grid-template-columns:1fr;gap:.15rem}}
+
+/* bullets */
+.list{list-style:none;margin:0;padding:0}
+.list li{position:relative;padding:0 0 .95rem 1.15rem;font-size:1rem;line-height:1.55}
+.list li::before{content:"";position:absolute;left:0;top:.66rem;width:5px;height:1px;background:var(--copper)}
+.list b{font-weight:500}
+
+/* photo plates */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem 1.1rem}
+.shot{margin:0}
+.shot .box{aspect-ratio:4/5;overflow:hidden;background:#DFE2E4;border:1px solid var(--line)}
+.shot img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.06);transition:filter .35s ease}
+.shot:hover img{filter:grayscale(0) contrast(1)}
+.shot figcaption{
+  font-family:"IBM Plex Mono",monospace;font-size:.64rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-faint);margin-top:.45rem;
+}
+@media (max-width:520px){.grid{grid-template-columns:1fr}}
+
+footer{
+  margin-top:4.5rem;padding-top:1.6rem;border-top:1px solid var(--line);
+  font-family:"IBM Plex Mono",monospace;font-size:.76rem;letter-spacing:.04em;color:var(--ink-faint);
+}
+footer a{background:none;color:var(--ink-faint)}
+footer a:hover{color:var(--phase)}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="rail" aria-hidden="true"></div>
+
+  <header>
+    <h1 class="mark"><a href="index.html">Tanvi Bansal</a></h1>
+    <nav>
+      <a href="projects.html">Projects</a>
+      <a href="photos.html" aria-current="page">Photos</a>
+      <a href="thoughts.html">Thoughts</a>
+    </nav>
+  </header>
+
+  <section>
+    <p class="note">In progress...</p>
+  </section>
+
+  <footer><a href="mailto:tanvi12.bansal@gmail.com">tanvi12.bansal@gmail.com</a></footer>
+</div>
+
+</body>
+</html>

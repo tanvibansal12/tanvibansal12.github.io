@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tanvi Bansal</title>
-<meta name="description" content="Tanvi Bansal builds data infrastructure for physical AI.">
+<title>Projects — Tanvi Bansal</title>
+<meta name="description" content="Everything Tanvi Bansal has built.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -142,67 +142,70 @@ footer a:hover{color:var(--phase)}
   <div class="rail" aria-hidden="true"></div>
 
   <header>
-    <h1 class="mark">Tanvi Bansal</h1>
+    <h1 class="mark"><a href="index.html">Tanvi Bansal</a></h1>
     <nav>
-      <a href="projects.html">Projects</a>
+      <a href="projects.html" aria-current="page">Projects</a>
       <a href="photos.html">Photos</a>
       <a href="thoughts.html">Thoughts</a>
     </nav>
-    <div class="lede">
-      <p>I build data infrastructure for physical AI.</p>
-      <p>I am 20 years old, live in San Francisco, and study electrical and computer engineering at the University of Toronto.</p>
-    </div>
-    <div class="meta">
-      <a href="https://www.linkedin.com/in/tanvi--bansal/">LinkedIn</a>
-      <a href="https://x.com/_tanvi_bansal">Twitter</a>
-      <a href="mailto:tanvi12.bansal@gmail.com">Email</a>
-    </div>
   </header>
 
   <section>
-    <h2>About</h2>
+    <p class="note">Still going up. Half of what I have built is not on here yet.</p>
 
-    <p>I grew up in Siliguri, a small town in West Bengal, where electricity was a privilege and education was a bigger one. When the power died at our house I went and found the fuse. Before that I was borrowing other kids' remote controlled cars, mostly so I could open them.</p>
-
-    <p>I am the third generation of entrepreneurs in my family and the first woman in it to be formally educated. Both of those shaped me about equally. It was a male dominated household in a town with firm opinions about what girls were for, and I was told often, by people who meant well, that girls are born to be married. My family got criticised for spending anything on my schooling. So I paid for it myself from the age of 11 with olympiad prize money and won a full scholarship to one of India's best boarding schools. That was the first thing I ever built: a way out that nobody could revoke.</p>
-
-    <p>Boarding school is where I found coding and stopped looking for anything else. At 11 and 12, working alongside university professors, I built <strong>Electroverter</strong>, a device that converts road traffic noise into electricity for homes in low income neighbourhoods. Loud, badly wired places have a resource in them that nobody was collecting.</p>
-
-    <p>Then COVID sent me home and I watched school stop completely for children in my own city. I started <strong>Sahaay Education</strong>, which runs small government authorised schools in the underprivileged areas so those kids had somewhere to go. It is the work I was given the National Youth Icon Award for.</p>
-
-    <p>The one that changed things was <strong>Rail-Leela</strong>, a toy that teaches differently-abled children about India's culture and heritage. It won at state and national science fairs, and was picked in the top four out of roughly a hundred thousand projects in the ATL Marathon, the first project from my area ever selected. I was 15. It took me to a bootcamp and an internship at one of India's most renowned technological universities, and to pitching Rail-Leela to businesses.</p>
-
-    <p class="pull">Every award made the criticism louder, not quieter. So I stopped asking and got rebellious about it.</p>
-
-    <p>I started <strong>VisionWomxn</strong> so other girls would not have to fight it alone. Coding workshops, campaigns, and a rally of more than 1,500 women. Then I left for Toronto on a Dean's International Scholarship, at 17.</p>
-
-    <p>Toronto was my Hogwarts, and it is where I put a real toolkit under the instinct. I built Canada's first driverless formula car with UTFR, fusing LiDAR, camera and IMU at 100Hz on a Jetson to hold 5cm localization at 100km/h, and we won at Formula Student. Most of that year was not algorithms. It was clock skew, dropped CAN frames, and a scheduler that would not honour deadlines until we tore it out for PREEMPT_RT and lock free queues.</p>
-
-    <p>I invest too. I am an analyst and scout at Northside Ventures, where more than fifteen companies I sourced have gone to a partner, and I co-host dinners with VCs for young builders, which is how I meet founders about four minutes after they start.</p>
-
-    <p>Now I am building the thing all of it was pointing at. Robotics teams sit on petabytes of logs from real machines and select training data with recency windows, task labels, and intuition. Random subsampling is a real production baseline in 2026. I think physical AI is bottlenecked on data selection rather than architecture, and I am building the curation layer that fixes it.</p>
-
-    <p>The obsession that is not work is geothermal powered compute. Indonesia sits on a huge share of the world's geothermal reserves and uses a fraction of it while every AI company on earth scrambles for power. I spent a summer there standing at wellheads, then went to Taiwan and Canada to understand what a data center actually needs. Put the compute where the heat already is.</p>
-
-    <p>I also swim at national level, which is the only place I am reliably quiet.</p>
-
-    <p>Nothing I have built was built with the right parts. Please reach out, I answer everything.</p>
+    <h2>Building now</h2>
+    <ul class="list">
+      <li><b>Robot data platform.</b> Data infrastructure for physical AI. ROS2 and MCAP ingestion at scale, time sync and indexing, a searchable episode browser, dataset versioning, learned scoring of episodes on training value, manifest and PyTorch dataloader export. Benchmarked against the random subsampling teams actually run in production.</li>
+    </ul>
   </section>
 
   <section>
-    <h2>Elsewhere</h2>
-    <ul class="rows">
-      <li><span class="yr">2026</span><span>Verdant Robotics</span></li>
-      <li><span class="yr">2026</span><span>Northside Ventures</span></li>
-      <li><span class="yr">2025</span><span>Perplexity</span></li>
-      <li><span class="yr">2025</span><span>Baskit</span></li>
-      <li><span class="yr">2025</span><span>Hyundai Motorsport</span></li>
-      <li><span class="yr">2024</span><span>Ontario Power Generation</span></li>
+    <h2>Work</h2>
+    <ul class="list">
+      <li><b>Verdant Robotics.</b> Robotics engineering, Bay Area.</li>
+      <li><b>Northside Ventures.</b> Analyst and scout. Sourced 15+ companies that went on to a partner. Co-host dinners with VCs for young builders.</li>
+      <li><b>Perplexity.</b> Product on the Comet team.</li>
+      <li><b>Baskit, Singapore and Jakarta.</b> Sole AI engineer. Four production systems shipped zero to one for a 25 person team, sub-100ms inference across three regions.</li>
+      <li><b>Hyundai Motorsport.</b> Real time C++ diagnostics and a live React and TypeScript telemetry dashboard.</li>
+      <li><b>Ontario Power Generation.</b> Green energy telemetry on Kafka and Kubernetes, 10,000+ events per second, 1,000+ internal users.</li>
     </ul>
-    <p class="awards">Dean's International Scholar &middot; Cansbridge Fellow &middot; Harvard Research Scholar &middot; Rewriting the Code Fellow &middot; National Youth Icon Award &middot; Citadel Summer Terminal</p>
+  </section>
+
+  <section>
+    <h2>Hardware and systems</h2>
+    <ul class="list">
+      <li><b>Canada's first driverless formula car.</b> UTFR, eight person team, 200+ hours of track testing. C++17 on Jetson ARM64, bare metal drivers for LiDAR, V4L2 camera and SPI IMU, SLAM fusing all three at 100Hz for 5cm localization at 100km/h. Control loop cut from 18ms to 8ms with PREEMPT_RT, lock free queues and thread pinning. ROS2 and Gazebo hardware in the loop.</li>
+      <li><b>Linux driver and firmware stack for an FPGA accelerator.</b> C, Linux kernel character driver, MMIO and ioctl. Traced a hang down to a completion flag, which remains my favourite bug.</li>
+      <li><b>Neural network inference accelerator on FPGA.</b> SystemVerilog, Python and embedded C on a DE10-Lite. Four hidden layer MLP at 95% MNIST accuracy. Q8.8 fixed point halved memory bandwidth. Verified in ModelSim against a Python reference.</li>
+      <li><b>Runtime layer for a RISC-V AI accelerator.</b> C and C++, team of two. Operator dispatch, memory allocation, async queues, and a DMA style scheduler that cut transfers around 40%.</li>
+      <li><b>Cycle accurate AI accelerator simulator.</b> C++ and Python. Discrete event scheduler tracking per cycle pipeline state across compute and memory for transformer inference.</li>
+      <li><b>GPU performance observability platform.</b> Telemetry from distributed PyTorch training via Nsight Systems and NVML, automated bottleneck classification, Grafana over Prometheus.</li>
+      <li><b>Voice controlled racing game in assembly.</b> Written for a DE1-SoC. Exactly as unreasonable as it sounds.</li>
+      <li><b>Electroverter.</b> Converts road traffic noise into electricity for homes in low income neighbourhoods. Built at 11 with university professors and sold to a top Indian university.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Software</h2>
+    <ul class="list">
+      <li><b>QuantLab.</b> C++ and Python. Limit order book reconstruction from tick data, a backtesting engine with transaction costs and slippage, strategies across market making, momentum, mean reversion and stat arb, with PnL, Sharpe and drawdown analytics.</li>
+      <li><b>WanderMap.</b> Interactive GIS in C++ with EZGL, GTK and OpenStreetMap. A* pathfinding, simulated annealing courier routing, transit overlays, autocomplete and turn by turn directions. Benchmarked on Toronto, Tokyo, New York, Boston and the Golden Horseshoe at sub-35s load and sub-130ms click latency. ECE297, team of three.</li>
+      <li><b>Real time humanitarian crisis platform.</b> Hackathon build. Node.js, React, TypeScript and Redis aggregating five crisis and geographic APIs into one live globe, 8,000+ points at 60fps.</li>
+      <li><b>Secure code execution sandbox.</b> eBPF, seccomp and Docker.</li>
+      <li><b>Rail-Leela.</b> A toy teaching India's culture and heritage to differently-abled children. Built at 15. State and national science fair awards, top four of roughly 100,000 projects in the ATL Marathon.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>People</h2>
+    <ul class="list">
+      <li><b>Sahaay Education.</b> Small government authorised schools started during COVID for children in underprivileged areas of my city. National Youth Icon Award.</li>
+      <li><b>VisionWomxn.</b> Coding workshops, campaigns, and a rally of more than 1,500 women.</li>
+    </ul>
   </section>
 
   <footer><a href="mailto:tanvi12.bansal@gmail.com">tanvi12.bansal@gmail.com</a></footer>
 </div>
+
 </body>
 </html>
